@@ -1,71 +1,122 @@
-/* Basic reset */
+:root {
+    --dark-bg: #121212;
+    --dark-surface: #1E1E1E;
+    --dark-text: #E0E0E0;
+    --accent-color: #3498db;
+    --transition-speed: 0.3s;
+}
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #121212;
-  color: #e0e0e0;
-  line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+    line-height: 1.6;
 }
 
-/* Navbar */
-.navbar {
-  padding: 20px;
-  background-color: #1f1f1f;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+#app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .logo {
-  color: #fff;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 24px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--dark-text);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.cart-icon {
+    position: relative;
+}
+
+#cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
 }
 
 /* Product Slider */
 .product-slider {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 30px;
 }
 
-.slider {
-  display: flex;
-  gap: 20px;
-  transition: transform 0.5s ease;
+.slider-container {
+    display: flex;
+    transition: transform var(--transition-speed) ease;
 }
 
-.slider-item {
-  background-color: #333;
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
-  width: 300px;
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
 }
 
-.slider-item img {
-  width: 100%;
-  border-radius: 8px;
+.slider-controls button {
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
 }
 
-.slider-item p {
-  margin-top: 10px;
-  font-size: 18px;
+/* Responsive Design */
+@media (max-width: 768px) {
+    #app {
+        padding: 0 10px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
 }
 
-/* Smooth Animations */
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-body {
-  animation: fadeIn 1s ease-in-out;
+/* Utility Classes */
+.hidden {
+    display: none;
 }
