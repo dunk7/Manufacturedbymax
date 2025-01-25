@@ -3,79 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manufactured by Max</title>
+    <title>Modern Store</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div id="app">
-        <header>
-            <nav>
-                <div class="logo">MBM</div>
-                <div class="nav-links">
-                    <a href="#home">Home</a>
-                    <a href="#products">Products</a>
-                    <a href="#cart" class="cart-icon">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span id="cart-count">0</span>
-                    </a>
-                </div>
-            </nav>
-        </header>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-logo">Store</div>
+            <div class="nav-links">
+                <a href="#" class="nav-link">Products</a>
+                <a href="#" class="nav-link">Support</a>
+                <a href="#" class="nav-link">Cart (<span id="cart-count">0</span>)</a>
+            </div>
+        </nav>
+    </header>
 
-        <main>
-            <section id="home" class="hero">
-                <div class="product-slider">
-                    <div class="slider-container">
-                        <!-- Product slides will be dynamically populated -->
-                    </div>
-                    <div class="slider-controls">
-                        <button class="prev-slide">&lt;</button>
-                        <button class="next-slide">&gt;</button>
-                    </div>
-                </div>
-            </section>
+    <main class="main-content">
+        <div class="products-grid" id="products-grid"></div>
+    </main>
 
-            <section id="product-detail" class="hidden">
-                <div class="product-view">
-                    <div class="product-images">
-                        <div class="main-image-container">
-                            <img src="slide.jpg," alt="Product Image" class="main-product-image">
-                        </div>
-                        <div class="thumbnail-images"></div>
-                    </div>
-                    <div class="product-info">
-                        <h1 id="product-title"></h1>
-                        <p id="product-description"></p>
-                        <div class="product-options">
-                            <div class="color-selector"></div>
-                            <div class="size-selector"></div>
-                        </div>
-                        <div class="product-price">
-                            <span id="product-price-value"></span>
-                        </div>
-                        <button id="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </section>
+    <div class="product-modal" id="product-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-gallery" id="modal-gallery"></div>
+            <div class="modal-details">
+                <h2 id="product-title"></h2>
+                <p id="product-price"></p>
+                <div class="color-selector" id="color-selector"></div>
+                <div class="storage-selector" id="storage-selector"></div>
+                <button class="add-to-cart" id="add-to-cart">Add to Cart</button>
+                <p id="product-description"></p>
+            </div>
+        </div>
+    </div>
 
-            <section id="cart" class="hidden">
-                <div class="cart-container">
-                    <h2>Your Cart</h2>
-                    <div class="cart-items"></div>
-                    <div class="cart-summary">
-                        <div class="cart-total">
-                            Total: $<span id="cart-total-value">0.00</span>
-                        </div>
-                        <button id="checkout-btn">Checkout</button>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <p>© 2024 Manufactured by Max. All Rights Reserved.</p>
-        </footer>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
     </div>
 
     <script src="app.js"></script>
